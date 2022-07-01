@@ -1,0 +1,64 @@
+\documentclass{beamer}
+\usepackage{xspace}
+
+ \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}
+\usetheme{CambridgeUS}
+
+\title{Assignment 8:Papoulis Chapter 15}
+\author{Saanvi Amrutha-AI21BTECH11026}
+\date{\today}
+\logo{\large \LaTeX{}}
+
+\usepackage{amsmath}
+\setbeamertemplate{caption}[numbered]{}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\begin{document}
+
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+\logo{}
+
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+\section{Question}
+\begin{frame}{Question}
+    \begin{block}{}
+       Prove that, in an irreducible Markov chain,all states are of the same type. They are either all transient, all persistent null or all persistent nonnull. All the states are either aperiodic or periodic with the same period.
+    \end{block}
+\end{frame}
+
+\section{Solution}
+
+\begin{frame}
+\frametitle{Solution}
+   The chain is irreducible,and hence every state is accessible from every other state.In that case, for any two states, the series $\sum_n p_{ii}^{\brak{n}}$ and $\sum_n p_{jj}^{\brak{n}}$ converge or diverge together.\\
+   Hence,all states are either transient or persistent. If $e_i$ is persistent null, then $p_{ii}^{\brak{n}}\rightarrow 0$ as $n\rightarrow \infty$ and $p_{jj}^{\brak{n}}\rightarrow 0$ as $n\rightarrow \infty$ so that $e_j$ and all other states are also persistent null.
+\end{frame}
+
+\begin{frame}
+    Finally if $e_i$ is persistent nonnull and has period $T$,then $p_{ii}^{\brak{n}}>0$ whenever $n$ is a multiple of $T$ only.\\
+\begin{align}
+    p_{ii}^{\brak{m+r}}\geq p_{ij}^{\brak{m}}p_{ji}^{\brak{r}}=ab>0
+\end{align}
+since $e_i$ and $e_j$ are mutually accesible.
+Here,$\brak{m+r}$ must be a multiple of $T$.\\
+\end{frame}
+
+\begin{frame}
+    Finally,
+    \begin{align}
+       p_{jj}^{\brak{n+m+r}}\geq ab p_{ii}^{\brak{n}}>0
+    \end{align}
+    where $n$ and $\brak{n+m+r}$ are multiples of $T$.\\ Thus, $T$ is also the period of the state $e_j$.\\
+    Hence proved.
+\end{frame}
+\end{document}
